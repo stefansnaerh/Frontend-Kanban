@@ -1,0 +1,28 @@
+@import '/src/variables.scss';
+
+
+.tasks-column-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    .task-card-collapsed-container {
+        width: 28rem;
+        height: fit-content;
+        background-color: $white;
+        box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.101545);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 20px 0px 20px 14px;
+        h2{
+            font-size: $taskFont;
+            margin: 0;
+        }
+        h3 {
+            font-size: $subtaskFont;
+            color: $mediumGray;
+            margin: 0;
+        }
+    }
+}

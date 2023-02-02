@@ -1,0 +1,60 @@
+@import '/src/variables.scss';
+
+
+
+
+.login-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 6rem;
+        width: 80vw;
+        .welcome-container {
+            display: flex;
+            flex-direction: column;
+            h1 {
+                font-size: $navFont;
+                align-self: flex-start;
+            }
+            h2{
+                margin-top: 0;
+                font-size: $taskFont;
+                color: $mediumGray;
+            }
+        }
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            label {
+                font-size: $taskFont;
+                font-weight: $FW500;
+                margin-bottom: 0.5rem;
+            }
+            input {
+                font-family: $mainFont;
+                padding-left: 1rem;
+                border-radius: 10px;
+                box-sizing: border-box;
+                border: 1px solid #B9B9B9;
+                height: 3.5rem;
+                margin-bottom: 2rem;
+            }
+            button {
+                height: 3.5rem;
+                background-color: $purple;
+                color: $white;
+                font-family: $mainFont;
+                font-size: $taskFont;
+                font-weight: $FW600;
+                border-radius: 10px;
+                border-style: none;
+                margin-top: 1rem;
+            }
+        }
+    }
+}

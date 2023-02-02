@@ -1,0 +1,23 @@
+@import '/src/variables.scss';
+
+
+
+
+.column-header-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 28rem;
+    .column-header {
+        color: $mediumGray;
+        font-size: $subtaskFont;
+        letter-spacing: 2.4px;
+    }
+    .column-dot {
+        width: 15px;
+        height: 15px;
+        background-color: aqua;
+        border-radius: 50%;
+        display: block;
+    }
+}

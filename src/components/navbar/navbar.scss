@@ -1,0 +1,109 @@
+@import '/src/variables.scss';
+
+
+
+
+header {
+    height: 7rem;
+    width: 100%;
+    background-color: $white;
+    display: flex;
+    align-items: center;
+    h1 {
+        font-size: 3.2rem;
+    }
+    h2 {
+        font-size: $navFont;
+        font-weight: $FW600;
+    }
+    .logo-container{
+        display: flex;
+        gap: 0.2rem;
+        padding-left: 1rem;
+        margin-right: 1.5rem;
+        span{
+            height: 25px;
+            width: 7px;
+            border-radius: 2px;
+            background-color: $purple;
+        }
+        .line2{
+            opacity: 0.75;
+        }
+        .line3{
+            opacity: 0.5;
+        }
+    }
+
+    .add-task-see-more-container {
+        display: flex;
+        margin-left: auto;
+        gap: 0.5rem;
+        padding-right: 0.5rem;
+        .three-dots-button {
+            border: none;
+            background: none;
+            padding: 0;
+        }
+        button {
+            font-family: $mainFont;
+            color: white;
+            background-color: $purple;
+            border: none;
+            border-radius: 24px;
+        }
+        .add-task-button-ipad {
+            font-weight: $FW600;
+            font-size: $taskFont;
+            height: 4.2rem;
+            width: 16rem;
+        }
+        .add-task-button-mobile {
+            height: 3rem;
+            width: 4.5rem;
+            img {
+                padding-top: 1px;
+            }
+        }
+    }
+    .edit-delete-board-container-none {
+        display: none;
+    }
+    
+}
+@media screen and (max-width: 980px) {
+    header {
+        h1 {
+            display: none;
+        }
+        .add-task-button-ipad{
+            display: none;
+        }
+    }
+}
+    
+
+
+@media screen and (min-width: 980px ){
+    header {
+        
+        .sidebar-line {
+            height: 7rem;
+            width: 1px;
+            background-color: #E4EBFA;
+            margin-right: 2rem;
+            margin-left: 5rem;
+        }
+        .nav-links-mobile {
+            display: none;
+        }
+        .add-task-button-mobile {
+            display: none;
+        }
+        .three-dots-button{
+            img {
+                height: 25px;
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+/*
+html is set to 62.5 % so all rem units in app are based on 10px. So 1.6rem is 16px, 1rem is 10px and so on
+*/
+html {
+  font-size: 62.5%;
+  background-color: #F4F7FD;
+ 
+}
+
+.App-disabled {
+  overflow: hidden;
+}
+
+.App-disabled:before {
+  content: "";
+  position: fixed;
+  z-index: 1;
+  min-height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0, .5);
+  pointer-events: none;
+}
+

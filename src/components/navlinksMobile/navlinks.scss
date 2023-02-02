@@ -1,0 +1,89 @@
+@import '/src/variables.scss';
+
+
+nav {
+    display: flex;
+    gap: 0.5rem;
+    h1 {
+        font-size: $navFont;
+    } 
+    button {
+        height: 25px;
+        border: none;
+        background: none;
+        align-self: center;
+    }
+    .links-container-none {
+        display: none;
+    }
+    .create-board-btn {
+        font-weight: $FW600;
+        color: $purple;
+        font-size: $taskFont;
+        padding-bottom: 5px;
+    }
+        
+    .links-container {
+    position: absolute;
+    top: 9rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: $white;
+    z-index: 2;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    height: fit-content;
+    width: clamp(150px, 80%, 350px);
+    border-radius: 8px;
+    box-shadow: 0px 10px 20px rgba(54, 78, 126, 0.25);
+        h3{
+            padding-left: 1.5rem;
+            font-weight: $FW600;
+            color: $mediumGray;
+            font-size: $taskFont;
+        }
+        .icon-links-container-focused {
+            display: flex;
+            align-items: center;
+            color: $white;
+            background-color: $purple;
+            gap: 10px;
+            width: 85%;
+            height: 45px;
+            border-radius: 0px 100px 100px 0px;
+            padding-left: 1.5rem;
+                img {
+                    height: 16px;
+                }
+                a {
+                    font-weight: $FW600;
+                    color: $white;
+                    font-size: $taskFont;
+                }
+            }
+            .icon-links-container{
+                height: 45px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding-left: 1.5rem;
+                a {
+                    font-weight: $FW600;
+                    color: $mediumGray;
+                    font-size: $taskFont;
+                }
+            }
+            .create-board-container {
+                height: 45px;
+                display: flex;
+                align-items: center;
+                padding-left: 1.5rem;
+                gap: 10px;
+                button{
+                    padding: 0;
+                }
+            }
+        }
+    }

@@ -1,0 +1,49 @@
+@import '/src/variables.scss';
+
+
+
+
+.delete-modal {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border-radius: 6px;
+    width: 300px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    height: 220px;
+    padding: 30px;
+    gap: 10px;
+    h1 {
+        color: $red;
+        font-size: $navFont;
+        font-weight: $FW700;
+    }
+    p {
+       font-size: $subtaskFont;
+       color: $mediumGray; 
+    }
+
+    button {
+        font-family: $mainFont;
+        height: 36px;
+        font-weight: $FW600;
+        font-size: $subtaskFont;
+        border: none;
+        border-radius: 20px;
+        
+    }
+    .delete-btn {
+        color: $white;
+        background-color: $red;
+    }
+    .cancel-btn {
+        background: rgba(99, 95, 199, 0.1);
+        color: $purple;
+    }
+}

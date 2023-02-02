@@ -1,0 +1,92 @@
+@import '/src/variables.scss';
+
+
+
+
+.view-task-container {
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    background: $white;
+    height: fit-content;
+    width: 300px;
+    gap: 25px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 8px;
+    padding: 30px 20px 40px 20px;
+    align-items: center;
+    .button-text-container {
+        display: flex;
+        align-items: center;
+        width: 300px;
+        justify-content: space-between;
+        button {
+            border: none;
+            background: none;
+        }
+    }
+    h1 {
+        font-size: $navFont; 
+        margin-bottom: 2.5rem;
+        align-self: flex-start;
+        margin: 0;
+    }
+    p {
+        color : $mediumGray;
+        font-size: $subtaskFont;
+        font-weight: $FW500;
+        margin: 0;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        label, legend {
+           color: $mediumGray; 
+           font-size: $subtaskFont;
+           font-weight: $FW600;
+           margin-bottom: 10px;
+        }
+        .label-line-through {
+            text-decoration: line-through;
+        }
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border: none;
+            min-width: none;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 10px;
+            label {
+                margin: 0;
+            }
+            input {
+                margin-left: 10px;
+            }
+            div {
+                background-color: $lightGray;
+                border-radius: 4px;
+                height: fit-content;
+                display: flex;
+                align-content: center;
+                gap: 10px;
+                padding-top: 14px;
+                padding-bottom: 14px;
+            }
+        }
+        select {
+            height: 30px;
+            border-radius: 4px;
+            border: 1px solid rgba(130, 143, 163, 0.25);
+            font-family: $mainFont;
+            padding-left: 10px;
+         }
+    }
+}
