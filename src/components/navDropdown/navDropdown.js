@@ -7,7 +7,7 @@ import useComponentVisible from '../../utils/useComponentVisible'
 
 
 const NavDropdown =  ({ boardData,  setDisplayLinks, handleAddBoardModal}) =>  {
-    const {greyBackground, setGrayBackground} = useContext(BackgroundGrayContext)
+    const {setGrayBackground} = useContext(BackgroundGrayContext)
     const {boardIndex, setBoardIndex} = useContext(BackgroundGrayContext)
     const { ref, isComponentVisible } = useComponentVisible(true);
     
@@ -33,13 +33,13 @@ const NavDropdown =  ({ boardData,  setDisplayLinks, handleAddBoardModal}) =>  {
                         <>
                         {boardData.indexOf(board) === boardIndex? (
                             <div className="icon-links-container-focused">
-                                <img src={boardIconWhite}/>
-                                <a>{board.title}</a>
+                                <img  alt='board icon white' src={boardIconWhite}/>
+                                <button>{board.title}</button>
                             </div>
                             )  : (
                             <div className="icon-links-container">
-                                <img src={boardIcon}/>
-                                <a onClick={()=> closeOnClick(index)}>{board.title}</a>
+                                <img alt='board icon' src={boardIcon}/>
+                                <button onClick={()=> closeOnClick(index)}>{board.title}</button>
                             </div>
                             )
                         }
@@ -47,7 +47,7 @@ const NavDropdown =  ({ boardData,  setDisplayLinks, handleAddBoardModal}) =>  {
                     )
                 })}
                 <div className='create-board-container'>
-                    <img src={boardIconPurple}/>
+                    <img alt='board icon purple' src={boardIconPurple}/>
                     <button className='create-board-btn'
                      onClick={handleAddBoardModal}>
                         + Create New Board

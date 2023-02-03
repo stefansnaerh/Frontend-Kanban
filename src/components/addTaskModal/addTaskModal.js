@@ -9,8 +9,8 @@ import useOnClickOutside from '../../utils/useOnClickOutside'
 import xIcon from '../../images/x.svg' 
 
 const AddTaskModal = ({closeAddTaskModal, boardData}) => {
-    const {greyBackground, setGrayBackground} = useContext(BackgroundGrayContext)
-    const {boardIndex , setBoardIndex} = useContext(BackgroundGrayContext)
+    const { setGrayBackground} = useContext(BackgroundGrayContext)
+    const {boardIndex} = useContext(BackgroundGrayContext)
     const [columnCount, setColumnCount] = useState(["e.g Make Coffee" , "e.g Drink Coffee and smile"])
     const [subTaskNames, setSubTaskNames] = useState([])
     const [taskName, setTaskName] = useState("")

@@ -57,7 +57,7 @@ nav {
                 img {
                     height: 16px;
                 }
-                a {
+                button {
                     font-weight: $FW600;
                     color: $white;
                     font-size: $taskFont;
@@ -69,7 +69,7 @@ nav {
                 align-items: center;
                 gap: 10px;
                 padding-left: 1.5rem;
-                a {
+                button {
                     font-weight: $FW600;
                     color: $mediumGray;
                     font-size: $taskFont;

@@ -4,7 +4,7 @@ import './navlinks.scss'
 import dropdownArrow from '../../images/dropdownArrow.svg'
 
 
-import { useContext, useState, useRef, useEffect } from 'react'
+import { useContext, useState} from 'react'
 import { BackgroundGrayContext} from '../../App'
 
 import AddBoardModal from '../addBoardModal/addBoardModal'
@@ -14,12 +14,10 @@ import NavDropdown from '../navDropdown/navDropdown'
 const NavlinksMobile = ( {boardData} ) => {
 
     const [displayAddBoardModal, setDisplayAddBoardModal] = useState(false)
-    const [displayAddTaskModal, setDisplayAddTaskModal] = useState(false)
     const [displayLinks, setDisplayLinks] = useState(false)
-    const {greyBackground, setGrayBackground} = useContext(BackgroundGrayContext)
-    const {boardIndex, setBoardIndex} = useContext(BackgroundGrayContext)
+    const { setGrayBackground} = useContext(BackgroundGrayContext)
+    const {boardIndex} = useContext(BackgroundGrayContext)
     
-   
     const handleDropdownMenu = () => {
         setDisplayLinks(prevState => !prevState)
       
@@ -34,11 +32,9 @@ const NavlinksMobile = ( {boardData} ) => {
         setDisplayAddBoardModal(false)
      }
      
-
     return (
         <>
         <nav className='nav-links-mobile'>
-          
             <button  onClick={handleDropdownMenu}>
                 <img  alt='click to see more' src={dropdownArrow}></img>
             </button>

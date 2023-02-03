@@ -1,6 +1,6 @@
 
 import './navbar.scss'
-import { useState, useContext, useRef } from 'react'
+import { useState, useContext} from 'react'
 // icons
 import plusSign from '../../images/+.svg'
 import threeDots from '../../images/threeDots.svg'
@@ -12,7 +12,6 @@ import EditDeleteBoard from '../editDeleteBoard/editDeleteBoard'
 import EditBoardModal from '../editBoardModal/editBoard'
 //functions
 import { BackgroundGrayContext } from '../../App'
-import AddBoardModal from '../addBoardModal/addBoardModal'
 
 
 
@@ -24,7 +23,7 @@ const Navbar = ({boardData, boardIndex }) => {
     const [displayAddTaskModal, setDisplayAddTaskModal] = useState(false)
     const [displayDeleteModal, setDisplayDeletekModal] = useState(false)
     const [displayEditBoard, setDisplayEditBoard] = useState(false)
-    const {greyBackground, setGrayBackground} = useContext(BackgroundGrayContext)
+    const {setGrayBackground} = useContext(BackgroundGrayContext)
 
     const displayEditAndDeleteModal = () => {
         setDisplayEditAndDelete(prev => !prev)

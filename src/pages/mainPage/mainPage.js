@@ -5,12 +5,12 @@ import ViewTaskModal from '../../components/viewTaskModal/viewTask';
 
 
 import { BackgroundGrayContext } from '../../App';
-import { useContext, useState } from 'react';
+import { Fragment, useContext, useState } from 'react';
 import Sidebar from '../../components/sidebar/sidebar';
 
 const MainPage = ( {currentBoard, boardData} ) => {
     // changing column object to array
-    const {taskContext, setTaskContext} = useContext(BackgroundGrayContext)
+    const {taskContext} = useContext(BackgroundGrayContext)
     const [displayViewTask, setDisplayViewTask] = useState(false)
     const columnsObjectToArray = Object.values(currentBoard.columns[0])
     
@@ -22,15 +22,17 @@ return (
             />
             </div>
             <div className='main-tasks'>
-            {columnsObjectToArray.map(column => {
+            {columnsObjectToArray.map((column, index) => {
                 return (
-                    <div  className="column-container">
+                    <Fragment key={index}>
+                    <div key={column} className="column-container">
                     <TaskColumn
                     currentBoard={currentBoard}
                     taskStatus={column}
                     setDisplayViewTask={setDisplayViewTask}
                     />
                     </div>
+                    </Fragment>
                 )
             })}
             {displayViewTask ? (

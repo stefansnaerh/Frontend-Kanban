@@ -7,7 +7,7 @@ import { useRef, useContext } from 'react'
 
 
 const DeleteModal = ( {itemName, boardToDelete, setDisplayDeleteModal, element, setDisplayViewTask} ) => {
-    const {greyBackground, setGrayBackground} = useContext(BackgroundGrayContext)
+    const {setGrayBackground} = useContext(BackgroundGrayContext)
     const ref = useRef()
     useOnClickOutside(ref, () => {
         setGrayBackground('App')

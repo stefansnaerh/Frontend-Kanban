@@ -5,45 +5,63 @@ import boardIcon from '../../images/boardIcon.svg'
 import boardIconPurple from '../../images/boardIconPurple.svg'
 import boardIconWhite from '../../images/boardIconWhite.svg'
 
-import { useContext } from 'react'
+import AddBoardModal from '../addBoardModal/addBoardModal'
+
+import { useContext, useState, Fragment } from 'react'
 import { BackgroundGrayContext} from '../../App'
 
 const Sidebar = ( {boardData} ) => {
     const {boardIndex, setBoardIndex} = useContext(BackgroundGrayContext)
+    const {setGrayBackground} = useContext(BackgroundGrayContext)
+    const [displayAddBoardModal, setDisplayAddBoardModal] = useState(false)
     const changeBoard = (index) => {
         setBoardIndex(index)
     } 
+    const closeAddBoardModal = () => {
+        setDisplayAddBoardModal(false)
+     }
+     
+     const openAddBoardModal = () => {
+        setDisplayAddBoardModal(true)
+        setGrayBackground('App-disabled')
+     }
+
     return (
-         
          <div  className='sidebar-container'>
                 <>
                 <h3>All boards ( {boardData.length} )</h3>
                 {boardData.map((board, index) => {
                     return (
-                        <>
+                        <Fragment key={index} >
                         {boardData.indexOf(board) === boardIndex? (
-                            <div className="icon-links-container-focused">
-                                <img src={boardIconWhite}/>
-                                <a>{board.title}</a>
+                            <div  className="icon-links-container-focused">
+                                <img alt='board-icon-white' src={boardIconWhite}/>
+                                <button>{board.title}</button>
                             </div>
                             )  : (
-                            <div className="icon-links-container">
-                                <img src={boardIcon}/>
-                                <a onClick={() => changeBoard(index)}> {board.title}</a>
+                            <div  className="icon-links-container">
+                                <img alt='board-icon' src={boardIcon}/>
+                                <button onClick={() => changeBoard(index)}> {board.title}</button>
                             </div>
                             )
                         }
-                    </>
+                    </Fragment>
                     )
                 })}
                 <div className='create-board-container'>
-                    <img src={boardIconPurple}/>
-                    <button className='create-board-btn'
+                    <img alt='board-icon-pruple' src={boardIconPurple}/>
+                    <button onClick={openAddBoardModal} className='create-board-btn'
                      >
                         + Create New Board
                     </button>
                  </div>
                  </> 
+                 {displayAddBoardModal ? (
+                    <>
+                    <AddBoardModal
+                    closeAddBoardModal={closeAddBoardModal}/>
+                    </>
+                 ) : null}
             </div>
         
         

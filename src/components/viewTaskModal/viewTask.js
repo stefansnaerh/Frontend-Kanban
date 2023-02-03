@@ -10,9 +10,9 @@ import DeleteModal from '../deleteModal/deleteModal'
 
 const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard}) => {
     const [getStatus, setGetStatus] = useState(taskContext.status)
-    const [taskId, setTaskId] = useState(taskContext._id)
+    const [taskId] = useState(taskContext._id)
     const [subtasks, setSubtasks] = useState(taskContext.subtasks)
-    const {greyBackgorund, setGrayBackground} = useContext(BackgroundGrayContext)
+    const {setGrayBackground} = useContext(BackgroundGrayContext)
     const [displayEditDelete, setDisplayEditDelete] = useState(false)
     const [displayDeleteModal, setDisplayDeleteModal] = useState(false)
     const ref = useRef()
@@ -50,7 +50,7 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard})
             <div className='button-text-container'>
             <h1>{taskContext.name}</h1>
             <button onClick={() => setDisplayEditDelete(prev => !prev)}>
-                <img src={threeDots}></img>
+                <img alt='three dots' src={threeDots}></img>
             </button>
             </div>
             <p>{taskContext.description}</p>

@@ -12,7 +12,7 @@ import xIcon from '../../images/x.svg'
 
 
 const AddBoardModal = ( {closeAddBoardModal} ) => {
-    const {greyBackground, setGrayBackground} = useContext(BackgroundGrayContext)
+    const {setGrayBackground} = useContext(BackgroundGrayContext)
     const [columnCount, setColumnCount] = useState(["e.g Todo" , "e.g Doing"])
     // object to store columns before posting
     const [columnNames, setColumnNames] = useState({ })
@@ -77,7 +77,7 @@ const AddBoardModal = ( {closeAddBoardModal} ) => {
                     <label htmlFor={`column ${index +1}`}></label>
                     <input placeholder={input} onChange={(e) => handleColumns(e, index)}></input>
                     <button onClick={(e) => removeColumn(e, index)}>
-                        <img src={xIcon}/>
+                        <img alt='X icon' src={xIcon}/>
                     </button>
                     </div>
                     )
