@@ -9,7 +9,6 @@ import { useContext, useState } from 'react';
 import Sidebar from '../../components/sidebar/sidebar';
 
 const MainPage = ( {currentBoard, boardData} ) => {
-    console.log(currentBoard)
     // changing column object to array
     const {taskContext, setTaskContext} = useContext(BackgroundGrayContext)
     const [displayViewTask, setDisplayViewTask] = useState(false)
@@ -18,36 +17,32 @@ const MainPage = ( {currentBoard, boardData} ) => {
 return (
     <main>
         <div className='sidebar'>
-      <Sidebar 
-      boardData={boardData}
-      />
-      </div>
-      <div className='main-tasks'>
-    {columnsObjectToArray.map(column => {
-        return (
-            <div  className="column-container">
-            <TaskColumn
-            currentBoard={currentBoard}
-            taskStatus={column}
-            setDisplayViewTask={setDisplayViewTask}
+            <Sidebar 
+            boardData={boardData}
             />
             </div>
-        )
-    })}
-    {displayViewTask ? (
-    <ViewTaskModal
-    taskContext={taskContext}
-    columns={columnsObjectToArray}
-    setDisplayViewTask={setDisplayViewTask}
-    displayViewTask={displayViewTask}
-    currentBoard={currentBoard}
-    /> 
-    ) : null}
-
-   { /*
-   <AddTaskModal
-boardData={boardData}/> */}
-</div>
+            <div className='main-tasks'>
+            {columnsObjectToArray.map(column => {
+                return (
+                    <div  className="column-container">
+                    <TaskColumn
+                    currentBoard={currentBoard}
+                    taskStatus={column}
+                    setDisplayViewTask={setDisplayViewTask}
+                    />
+                    </div>
+                )
+            })}
+            {displayViewTask ? (
+            <ViewTaskModal
+            taskContext={taskContext}
+            columns={columnsObjectToArray}
+            setDisplayViewTask={setDisplayViewTask}
+            displayViewTask={displayViewTask}
+            currentBoard={currentBoard}
+            /> 
+            ) : null}
+        </div>
     </main>
 )
 }

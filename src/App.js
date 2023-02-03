@@ -31,12 +31,9 @@ function App() {
   
   }, [])
 
-
   return (
     <div className={greyBackground}>
-
-      {loading ? (<>Loading.....</>): 
-      (
+      {loading ? (<>Loading.....</>): (
       <BackgroundGrayContext.Provider 
       value={{
         greyBackground, setGrayBackground,

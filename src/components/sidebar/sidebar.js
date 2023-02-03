@@ -14,7 +14,6 @@ const Sidebar = ( {boardData} ) => {
         setBoardIndex(index)
     } 
     return (
-        
          
          <div  className='sidebar-container'>
                 <>
@@ -44,8 +43,7 @@ const Sidebar = ( {boardData} ) => {
                         + Create New Board
                     </button>
                  </div>
-                 </>
-                
+                 </> 
             </div>
         
         

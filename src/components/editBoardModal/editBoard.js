@@ -24,8 +24,6 @@ const EditBoardModal = ( {setDisplayEditBoard, board} ) => {
     let newColumnCount
 
     const ref = useRef();
-    console.log(board)
-
     // function that handles click outside of modals to close them
     useOnClickOutside(ref, () => {
         setGrayBackground('App')

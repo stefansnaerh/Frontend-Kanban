@@ -42,7 +42,6 @@ const AddTaskModal = ({closeAddTaskModal, boardData}) => {
         newColumnCount.splice(index, 1 ,newSubtask)
         setSubTaskNames(newColumnCount)
     } 
-    console.log(subTaskNames)
     // create input under <fieldset/>
     const createColumn = (e) => {
         e.preventDefault()
@@ -57,7 +56,7 @@ const AddTaskModal = ({closeAddTaskModal, boardData}) => {
         newColumnCount.splice(index, 1)
         setColumnCount(newColumnCount)
     }
-    console.log(getStatus)
+   
     const addNewTask = (e) => {
         e.preventDefault()
         const newBoard = {

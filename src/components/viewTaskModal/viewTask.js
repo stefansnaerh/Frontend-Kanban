@@ -85,7 +85,6 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard})
                                     </label>
                                 </>
                                 )}
-                            
                             </div>
                         )
                     })}
@@ -115,11 +114,8 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard})
             element={'task'}
             setDisplayViewTask={setDisplayViewTask}
             /> : null}
-            
         </div>
-
     )
 }
-
 
 export default ViewTaskModal
