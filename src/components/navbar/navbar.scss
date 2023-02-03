@@ -71,12 +71,22 @@ header {
     }
     
 }
+
+@media screen and (min-width: 780px) {
+    .add-task-button-mobile {
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 780px ) {
+    .add-task-button-ipad{
+        display: none;
+    }
+}
 @media screen and (max-width: 980px) {
     header {
         h1 {
-            display: none;
-        }
-        .add-task-button-ipad{
             display: none;
         }
     }
@@ -86,7 +96,6 @@ header {
 
 @media screen and (min-width: 980px ){
     header {
-        
         .sidebar-line {
             height: 7rem;
             width: 1px;
@@ -97,9 +106,7 @@ header {
         .nav-links-mobile {
             display: none;
         }
-        .add-task-button-mobile {
-            display: none;
-        }
+       
         .three-dots-button{
             img {
                 height: 25px;

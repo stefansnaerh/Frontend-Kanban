@@ -9,7 +9,8 @@ It has all crud functionality implemented. <br/>
 
 ## Tech Stack
 
-Backend built with Node
+Backend built with NodeJS Express and MongoDB.
+Frontend built with ReactJS and SASS.
 
 It has all CRUD functionality
 
@@ -18,37 +19,37 @@ You can then delete and edit boards, tasks and subtasks.
 
 ## Create Board
 
-#### Mobile
+#### Mobile:
 
 Click the arrow in the header and select Create New Board.
 
-#### Desktop / Tablet
+#### Desktop / Tablet:
 
 Click on Create New Board in the sidebar.
 
 ## Edit & Delete Board
 
-#### Desktop / Tablet / Mobile
+#### Desktop / Tablet / Mobile:
 
 Click on the three dots in the right corner. Press edit or delete board
 
 ## Create Task
 
-#### Mobile
+#### Mobile:
 
 Click the blue button with the plus sign in the header. Fill out the form and hit create task
 In the form you can also create subtasks under that task.
 
-#### Desktop / Tablet
+#### Desktop / Tablet:
 
 Click Add New Task button in header. Fill out the form and hit create task
 In the form you can also create subtasks under that task.
 
-#### Edit & Delete Task
+#### Edit & Delete Task:
 
 Click the task you want to edit or delete. Click the three dots in the right corner
 and press edit or delete.
 
-#### Subtasks
+#### Subtasks:
 
 You can edit and delete subtasks if you click on the task. There you can also mark them done or unmark them.
