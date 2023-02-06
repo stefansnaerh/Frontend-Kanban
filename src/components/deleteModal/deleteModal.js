@@ -13,9 +13,12 @@ const DeleteModal = ( {itemName, boardToDelete, setDisplayDeleteModal, element, 
         setGrayBackground('App')
         setDisplayDeleteModal(false)
     })
+
+   
     
     const handleDelete= (e) => {
         e.preventDefault()
+    
         apiBoard.delete(`/${boardToDelete}`)
         setDisplayDeleteModal(false)
         if(setDisplayViewTask !== undefined){

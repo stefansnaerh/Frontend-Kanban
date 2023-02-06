@@ -32,12 +32,12 @@ const NavDropdown =  ({ boardData,  setDisplayLinks, handleAddBoardModal}) =>  {
                     return (
                         <>
                         {boardData.indexOf(board) === boardIndex? (
-                            <div className="icon-links-container-focused">
+                            <div key={index} className="icon-links-container-focused">
                                 <img  alt='board icon white' src={boardIconWhite}/>
                                 <button>{board.title}</button>
                             </div>
                             )  : (
-                            <div className="icon-links-container">
+                            <div key={index} className="icon-links-container">
                                 <img alt='board icon' src={boardIcon}/>
                                 <button onClick={()=> closeOnClick(index)}>{board.title}</button>
                             </div>

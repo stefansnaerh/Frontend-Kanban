@@ -1,10 +1,10 @@
-import './editDeleteBoard.scss'
+import './editDeleteModal.scss'
 
 import useOnClickOutside from '../../utils/useOnClickOutside'
 import { useRef } from 'react'
 
 
-const EditDeleteBoard = ({showDeleteModal, setDisplayEditAndDelete, element, showEdit}) => {
+const EditDeleteModal = ({showDeleteModal, setDisplayEditAndDelete, element, showEdit}) => {
     const ref = useRef()
     
     useOnClickOutside(ref, () => {
@@ -19,4 +19,4 @@ const EditDeleteBoard = ({showDeleteModal, setDisplayEditAndDelete, element, sho
 }
 
 
-export default EditDeleteBoard
+export default EditDeleteModal

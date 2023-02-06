@@ -73,7 +73,7 @@ const AddBoardModal = ( {closeAddBoardModal} ) => {
                 <legend>Board Columns</legend>
                 {columnCount.map((input, index) => {
                     return (
-                    <div>
+                    <div key={index}>
                     <label htmlFor={`column ${index +1}`}></label>
                     <input placeholder={input} onChange={(e) => handleColumns(e, index)}></input>
                     <button onClick={(e) => removeColumn(e, index)}>

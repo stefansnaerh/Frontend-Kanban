@@ -1,7 +1,7 @@
 
 
 
-const url='http://localhost:5001/api/boards'
+const url='https://backend-kanban.vercel.app/api/boards'
 
 
 const apiBoard = {

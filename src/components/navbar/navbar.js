@@ -8,14 +8,10 @@ import threeDots from '../../images/threeDots.svg'
 import NavlinksMobile from '../navlinksMobile/navlinksMobile'
 import AddTaskModal from '../addTaskModal/addTaskModal'
 import DeleteModal from '../deleteModal/deleteModal'
-import EditDeleteBoard from '../editDeleteBoard/editDeleteBoard'
+import EditDeleteModal from '../editDeleteModal/editDeleteModal'
 import EditBoardModal from '../editBoardModal/editBoard'
 //functions
 import { BackgroundGrayContext } from '../../App'
-
-
-
-
 
 
 const Navbar = ({boardData, boardIndex }) => {
@@ -73,7 +69,7 @@ const Navbar = ({boardData, boardIndex }) => {
                 </button>
             </div>
             {displayEditAndDelete ? (
-            <EditDeleteBoard
+            <EditDeleteModal
             showDeleteModal={showDeleteModal}
             setDisplayEditAndDelete={setDisplayEditAndDelete}
             element={'board'}

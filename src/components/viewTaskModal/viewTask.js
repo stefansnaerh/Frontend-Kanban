@@ -4,17 +4,15 @@ import apiTask from '../../utils/apiTask'
 import { useContext, useState, useRef } from 'react'
 import { BackgroundGrayContext } from '../../App'
 import useOnClickOutside from '../../utils/useOnClickOutside'
-import EditDeleteBoard from '../editDeleteBoard/editDeleteBoard'
-import DeleteModal from '../deleteModal/deleteModal'
+import EditDeleteModal from '../editDeleteModal/editDeleteModal'
 
 
-const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard}) => {
+const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, showDeleteModal}) => {
     const [getStatus, setGetStatus] = useState(taskContext.status)
     const [taskId] = useState(taskContext._id)
     const [subtasks, setSubtasks] = useState(taskContext.subtasks)
     const {setGrayBackground} = useContext(BackgroundGrayContext)
     const [displayEditDelete, setDisplayEditDelete] = useState(false)
-    const [displayDeleteModal, setDisplayDeleteModal] = useState(false)
     const ref = useRef()
 
     useOnClickOutside(ref, () => {
@@ -39,12 +37,8 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard})
         }
         apiTask.put(`/${currentBoard._id}/tasks/${taskId}`, updatedTask)
     }
-    const showDeleteModal = () => {
-        setDisplayDeleteModal(true)
-        setDisplayEditDelete(false)
-    }
+    
 
-    const taskToChange = `${currentBoard._id}/tasks/${taskId}`
     return (
         <div ref={ref} className='view-task-container'>
             <div className='button-text-container'>
@@ -58,12 +52,11 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard})
                 <fieldset>
                     <legend>Subtasks</legend>
                     {taskContext.subtasks.map((subtask, index) => {
-                        console.log(subtasks[index].done)
                         return (
-                            <div className='checkbox-label-container'>
+                            <div key={index} className='checkbox-label-container'>
                                 {subtask.done === true ?  (
                                 <>
-                                    <input 
+                                    <input
                                     value={subtasks[index].done} 
                                     name={subtask.name} type="checkbox" 
                                     onChange={() => handleSubtasks(index)} 
@@ -91,26 +84,18 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard})
                 </fieldset>
                 <label htmlFor='pick-status' className='status-label'>Current Status</label>
                     <select name='pick-status' onChange={(e) => setGetStatus(e.target.value)}>
-                        {columns.map((column, key) => {
+                        {columns.map((column, index) => {
                             return (
                                 <>
-                                <option key={key} value={column}>{column}</option>
+                                <option key={index} value={column}>{column}</option>
                                 </>
                             )
                         })}
                     </select>
             </form>
             {displayEditDelete ? 
-            <EditDeleteBoard
+            <EditDeleteModal
             showDeleteModal={showDeleteModal}
-            element={'task'}
-            setDisplayViewTask={setDisplayViewTask}
-            /> : null}
-            {displayDeleteModal ? 
-            <DeleteModal
-            setDisplayDeleteModal={setDisplayDeleteModal}
-            boardToDelete={taskToChange}
-            itemName={taskContext.name}
             element={'task'}
             setDisplayViewTask={setDisplayViewTask}
             /> : null}
