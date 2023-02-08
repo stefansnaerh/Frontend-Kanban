@@ -4,6 +4,7 @@ This is my first full stack application. <br/>
 I built this project for practice and I wanted a full stack application to show in my portfolio.<br/>
 I learned alot both about the backend and then connecting it to my frontend. <br/>
 It gave me a good practice on handling state in ReactJS and also tested my Javascript skills.<br/>
+I used localStorage to display the right board on refresh
 
 It has all crud functionality implemented. <br/>
 
@@ -12,8 +13,8 @@ It has all crud functionality implemented. <br/>
 Backend built with NodeJS Express and MongoDB.
 Frontend built with ReactJS and SASS.
 
-It has all CRUD functionality
-
+It has all CRUD functionality.<br/>
+I used UseContext for state management.<br/>
 You can create boards (project name) and than add tasks for that project and subtasks for each task.
 You can then delete and edit boards, tasks and subtasks.
 

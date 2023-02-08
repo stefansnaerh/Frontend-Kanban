@@ -10,12 +10,15 @@ import { Fragment, useContext, useState } from 'react';
 import Sidebar from '../../components/sidebar/sidebar';
 import DeleteModal from '../../components/deleteModal/deleteModal'
 
+import EditTaskModal from '../../components/editTaskModal/editTaskModal';
+
 const MainPage = ( {currentBoard, boardData} ) => {
     // changing column object to array
     const {taskContext} = useContext(BackgroundGrayContext)
     const [displayViewTask, setDisplayViewTask] = useState(false)
     const [setDisplayEditDelete] = useState(false)
     const [displayDeleteModal, setDisplayDeleteModal] = useState(false)
+    const [displayEditTask, setDisplayEditTask] = useState(false)
     const columnsObjectToArray = Object.values(currentBoard.columns[0])
 
      const showDeleteModal = () => {
@@ -24,8 +27,12 @@ const MainPage = ( {currentBoard, boardData} ) => {
         setDisplayViewTask(false)
     }
 
+    const showEdit = () => {
+        setDisplayViewTask(false)
+        setDisplayEditTask(true)
+    }
+
     const taskToChange = `${currentBoard._id}/tasks/${taskContext._id}`
-   
 return (
     <main>
         <div className='sidebar'>
@@ -55,6 +62,7 @@ return (
             displayViewTask={displayViewTask}
             currentBoard={currentBoard}
             showDeleteModal={showDeleteModal}
+            showEdit={showEdit}
             /> 
             ) : null}
             {displayDeleteModal ? 
@@ -65,6 +73,13 @@ return (
             element={'task'}
             setDisplayViewTask={setDisplayViewTask}
             /> : null}
+            {displayEditTask ? 
+             <EditTaskModal
+             boardData={boardData}
+             taskContext={taskContext}
+             taskToChange={taskToChange}
+             setDisplayEditTask={setDisplayEditTask}
+             /> : null}
         </div>
     </main>
 )

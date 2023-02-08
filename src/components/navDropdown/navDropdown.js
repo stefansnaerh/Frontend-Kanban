@@ -13,6 +13,7 @@ const NavDropdown =  ({ boardData,  setDisplayLinks, handleAddBoardModal}) =>  {
     
     const closeOnClick = (index) => {
         setBoardIndex(index)
+        window.localStorage.setItem('index', JSON.stringify(index))
         setDisplayLinks(false)
         setGrayBackground('App')
     }

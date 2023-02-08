@@ -1,13 +1,13 @@
 import './viewTask.scss'
 import threeDots from '../../images/threeDots.svg'
 import apiTask from '../../utils/apiTask'
-import { useContext, useState, useRef } from 'react'
+import { useContext, useState, useRef, Fragment } from 'react'
 import { BackgroundGrayContext } from '../../App'
 import useOnClickOutside from '../../utils/useOnClickOutside'
 import EditDeleteModal from '../editDeleteModal/editDeleteModal'
 
 
-const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, showDeleteModal}) => {
+const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, showDeleteModal, showEdit}) => {
     const [getStatus, setGetStatus] = useState(taskContext.status)
     const [taskId] = useState(taskContext._id)
     const [subtasks, setSubtasks] = useState(taskContext.subtasks)
@@ -53,7 +53,8 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, 
                     <legend>Subtasks</legend>
                     {taskContext.subtasks.map((subtask, index) => {
                         return (
-                            <div key={index} className='checkbox-label-container'>
+                            <Fragment key={index}>
+                            <div  className='checkbox-label-container'>
                                 {subtask.done === true ?  (
                                 <>
                                     <input
@@ -79,6 +80,7 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, 
                                 </>
                                 )}
                             </div>
+                            </Fragment>
                         )
                     })}
                 </fieldset>
@@ -86,9 +88,9 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, 
                     <select name='pick-status' onChange={(e) => setGetStatus(e.target.value)}>
                         {columns.map((column, index) => {
                             return (
-                                <>
-                                <option key={index} value={column}>{column}</option>
-                                </>
+                                <Fragment key={index}>
+                                <option value={column}>{getStatus}</option>
+                                </Fragment>
                             )
                         })}
                     </select>
@@ -98,6 +100,7 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, 
             showDeleteModal={showDeleteModal}
             element={'task'}
             setDisplayViewTask={setDisplayViewTask}
+            showEdit={showEdit}
             /> : null}
         </div>
     )
