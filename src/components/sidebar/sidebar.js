@@ -16,6 +16,7 @@ const Sidebar = ( {boardData} ) => {
     const [displayAddBoardModal, setDisplayAddBoardModal] = useState(false)
     const changeBoard = (index) => {
         setBoardIndex(index)
+        window.localStorage.setItem('index', JSON.stringify(index))
     } 
     const closeAddBoardModal = () => {
         setDisplayAddBoardModal(false)
