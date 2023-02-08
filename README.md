@@ -54,3 +54,6 @@ and press edit or delete.
 #### Subtasks:
 
 You can edit and delete subtasks if you click on the task. There you can also mark them done or unmark them.
+
+[I got the design from Frontend Mentor](www.frontendmentor.io)
+[Link to figma file](https://www.figma.com/file/ajw52wSmWYbWvVk3j0pMvD/kanban-task-management-web-app?node-id=0%3A8345&t=7upSnXKbdlrAJ1x3-1)
