@@ -5,14 +5,14 @@ import ColumnHeader from '../columnHeader/columnHeader';
 
 import { BackgroundGrayContext } from '../../App';
 
-const TaskColumn = ( {currentBoard, taskStatus, setDisplayViewTask} ) => {
+const TaskColumn = ( {currentBoard, taskStatus, setDisplayViewTask, columnColor} ) => {
 
     const childLength = useRef(null)
     const [countTasks, setCountTasks] = useState(0)
     const {setTaskContext} = useContext(BackgroundGrayContext)
     const {setGrayBackground} = useContext(BackgroundGrayContext)
 
-  
+
     useEffect(() => {
         // get number of tasks under each column
         const list = childLength.current.children
@@ -30,6 +30,7 @@ const TaskColumn = ( {currentBoard, taskStatus, setDisplayViewTask} ) => {
         <ColumnHeader
         taskStatus={taskStatus}
         countTasks={countTasks}
+        columnColor={columnColor}
         />
         <div ref={childLength} className='tasks-column-container'>
         {currentBoard.tasks.map((task, index) => { 

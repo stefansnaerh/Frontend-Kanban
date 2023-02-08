@@ -19,6 +19,7 @@ const MainPage = ( {currentBoard, boardData} ) => {
     const [setDisplayEditDelete] = useState(false)
     const [displayDeleteModal, setDisplayDeleteModal] = useState(false)
     const [displayEditTask, setDisplayEditTask] = useState(false)
+  
     const columnsObjectToArray = Object.values(currentBoard.columns[0])
 
      const showDeleteModal = () => {
@@ -26,11 +27,14 @@ const MainPage = ( {currentBoard, boardData} ) => {
         setDisplayEditDelete(false)
         setDisplayViewTask(false)
     }
+    
 
     const showEdit = () => {
         setDisplayViewTask(false)
         setDisplayEditTask(true)
     }
+    const columnColors = ["#49C4E5", "#67E2AE", "#8471F2", "#6DE8F0", "#78EE7D", "2500FC" ]
+
 
     const taskToChange = `${currentBoard._id}/tasks/${taskContext._id}`
 return (
@@ -42,10 +46,12 @@ return (
             </div>
             <div className='main-tasks'>
             {columnsObjectToArray.map((column, index) => {
+                
                 return (
                     <Fragment key={index}>
                     <div key={column} className="column-container">
-                    <TaskColumn
+                    <TaskColumn   
+                    columnColor = {columnColors[index]}
                     currentBoard={currentBoard}
                     taskStatus={column}
                     setDisplayViewTask={setDisplayViewTask}
