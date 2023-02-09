@@ -13,7 +13,7 @@ import xIcon from '../../images/x.svg'
 
 const EditTaskModal = ( {boardData,  taskContext,  setDisplayEditTask} ) => {
 
-    const {setGrayBackground} = useContext(BackgroundGrayContext)
+    const {setGrayBackground, darkMode} = useContext(BackgroundGrayContext)
     const {boardIndex} = useContext(BackgroundGrayContext)
     const [subTaskNames, setSubTaskNames] = useState(taskContext.subtasks)
     const [taskName, setTaskName] = useState(taskContext.name)
@@ -77,18 +77,23 @@ const EditTaskModal = ( {boardData,  taskContext,  setDisplayEditTask} ) => {
     }   
     return (
         <>
-        <div ref={ref} className='add-task-modal'>
-           <h1>Edit Task</h1>
+        <div 
+        style={darkMode ? {backgroundColor : "#2B2C37"} : {backgroundColor : "#FFFFFF"}}
+        ref={ref} className='add-task-modal'>
+           <h1
+            style={darkMode ? {color : "#FFFFFF"} : {color : "#000000"}}
+           >Edit Task</h1>
            <form>
             <label htmlFor='task-name'>Title</label>
             <input 
+            className={darkMode ? "input-dark" : null}
             name='task-name'
             value={taskName}
-            className='task-name-input' 
             onChange={(e) => {setTaskName(e.target.value)}}>
             </input>
             <label htmlFor='description'>Description</label>
             <textarea 
+            className={darkMode ? "input-dark" : null}
             name='description'
             value={taskDescription}
             onChange={(e) => setTaskDescription(e.target.value)}
@@ -99,17 +104,23 @@ const EditTaskModal = ( {boardData,  taskContext,  setDisplayEditTask} ) => {
                     return (
                     <div key={index}>
                     <label htmlFor={`column ${index +1}`}></label>
-                    <input value={subtask.name} onChange={(e) => handleColumns(e, index)}></input>
+                    <input 
+                    className={darkMode ? "input-dark" : null}
+                    value={subtask.name} onChange={(e) => handleColumns(e, index)}></input>
                     <button onClick={(e) => removeColumn(e, index)}>
                         <img alt='x-icon' src={xIcon}/>
                     </button>
                     </div>
                     )
                 })}
-                 <button className='add-column-btn' onClick={createColumn}>+ Add New Subtask</button>
+                 <button 
+                 style={darkMode ? {backgroundColor : "#FFFFFF"} : null}
+                 className='add-column-btn' onClick={createColumn}>+ Add New Subtask</button>
                 </fieldset>
             <label htmlFor='pick-status' className='status-label'>Status</label>
-                    <select value={taskContext.status} name='pick-status' onChange={(e) => setGetStatus(e.target.value)}>
+                    <select 
+                    style={darkMode ? {backgroundColor : "#20212C", color: "#ffffff"} : {backgroundColor : "#FFFFFF"}}
+                    value={taskContext.status} name='pick-status' onChange={(e) => setGetStatus(e.target.value)}>
                         {columnsObjectToArray.map((column, index) => {
                             return (
                                 <Fragment key={index}>

@@ -9,7 +9,7 @@ import useOnClickOutside from '../../utils/useOnClickOutside'
 import xIcon from '../../images/x.svg' 
 
 const AddTaskModal = ({closeAddTaskModal, boardData}) => {
-    const { setGrayBackground} = useContext(BackgroundGrayContext)
+    const { setGrayBackground, darkMode} = useContext(BackgroundGrayContext)
     const {boardIndex} = useContext(BackgroundGrayContext)
     const [columnCount, setColumnCount] = useState(["e.g Make Coffee" , "e.g Drink Coffee and smile"])
     const [subTaskNames, setSubTaskNames] = useState([])
@@ -70,18 +70,19 @@ const AddTaskModal = ({closeAddTaskModal, boardData}) => {
     }    
     return (
         <>
-        <div ref={ref} className='add-task-modal'>
+        <div style={darkMode ? {backgroundColor : "#2B2C37"} : {backgroundColor : "#FFFFFF"}} ref={ref} className='add-task-modal'>
            <h1>Add New Task</h1>
            <form>
             <label htmlFor='task-name'>Title</label>
             <input 
             name='task-name'
-            className='task-name-input' 
+            className={darkMode ? "input-dark" : null}
             placeholder='e.g Take coffee break'
             onChange={(e) => {setTaskName(e.target.value)}}>
             </input>
             <label htmlFor='description'>Description</label>
             <textarea 
+            className={darkMode ? "input-dark" : null}
             name='description'
             placeholder='e.g. It’s always good to take a break. This 
             15 minute break will  recharge the batteries 
@@ -94,7 +95,11 @@ const AddTaskModal = ({closeAddTaskModal, boardData}) => {
                     return (
                     <div>
                     <label htmlFor={`column ${index +1}`}></label>
-                    <input placeholder={input} onChange={(e) => handleColumns(e, index)}></input>
+                    <input 
+                    className={darkMode ? "input-dark" : null}
+                    placeholder={input} onChange={(e) => handleColumns(e, index)}
+                    >
+                    </input>
                     <button onClick={(e) => removeColumn(e, index)}>
                         <img alt='x-icon' src={xIcon}/>
                     </button>
@@ -104,7 +109,9 @@ const AddTaskModal = ({closeAddTaskModal, boardData}) => {
                  <button className='add-column-btn' onClick={createColumn}>+ Add New Subtask</button>
                 </fieldset>
             <label htmlFor='pick-status' className='status-label'>Status</label>
-                    <select name='pick-status' onChange={(e) => setGetStatus(e.target.value)}>
+                    <select 
+                    style={darkMode ? {backgroundColor : "#20212C", color: "#ffffff"} : {backgroundColor : "#FFFFFF"}} 
+                    name='pick-status' onChange={(e) => setGetStatus(e.target.value)}>
                         {columnsObjectToArray.map((column, key) => {
                             return (
                                 <>

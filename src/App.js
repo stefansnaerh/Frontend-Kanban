@@ -21,6 +21,7 @@ function App() {
   const [greyBackground, setGrayBackground] = useState('App')
   const [boardIndex, setBoardIndex] = useState(checkIndex ? JSON.parse(checkIndex) : 0)
   const [taskContext, setTaskContext] = useState([])
+  const [darkMode, setDarkMode] = useState(false)
 
   useEffect(() => {
       const getBoards = async()=>{
@@ -41,7 +42,8 @@ function App() {
       value={{
         greyBackground, setGrayBackground,
         boardIndex , setBoardIndex,
-        taskContext, setTaskContext
+        taskContext, setTaskContext,
+        darkMode, setDarkMode,
         }}>
         <Navbar
         boardData={boardData}

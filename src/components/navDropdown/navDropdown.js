@@ -1,13 +1,18 @@
+// icons 
 import boardIcon from '../../images/boardIcon.svg'
 import boardIconPurple from '../../images/boardIconPurple.svg'
 import boardIconWhite from '../../images/boardIconWhite.svg'
+import moonIcon from '../../images/moonIcon.svg'
+import sunIcon from '../../images/sunIcon.svg'
+
+
 import { useContext } from 'react'
 import { BackgroundGrayContext} from '../../App'
 import useComponentVisible from '../../utils/useComponentVisible'
 
 
 const NavDropdown =  ({ boardData,  setDisplayLinks, handleAddBoardModal}) =>  {
-    const {setGrayBackground} = useContext(BackgroundGrayContext)
+    const {setGrayBackground, setDarkMode, darkMode} = useContext(BackgroundGrayContext)
     const {boardIndex, setBoardIndex} = useContext(BackgroundGrayContext)
     const { ref, isComponentVisible } = useComponentVisible(true);
     
@@ -25,7 +30,9 @@ const NavDropdown =  ({ boardData,  setDisplayLinks, handleAddBoardModal}) =>  {
    
     return (
         <>
-         <div ref={ref} className='links-container'>
+         <div
+            style={darkMode ? {backgroundColor : "#2B2C37"} : {backgroundColor : "#FFFFFF"}}
+            ref={ref} className='links-container'>
             {isComponentVisible && (
                 <>
                 <h3>All boards ( {boardData.length} )</h3>
@@ -54,6 +61,13 @@ const NavDropdown =  ({ boardData,  setDisplayLinks, handleAddBoardModal}) =>  {
                         + Create New Board
                     </button>
                  </div>
+                <div className='darkmode-container'>
+                    <img alt='sun' src={sunIcon}/>
+                    <button onClick={() => setDarkMode(prev => !prev)}>
+                        toggle darkmode
+                    </button>
+                    <img alt='moon' src={moonIcon}/>
+                </div>
                  </>
                  )}
             </div>

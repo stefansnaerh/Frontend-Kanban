@@ -11,7 +11,7 @@ import { useContext, useState, Fragment } from 'react'
 import { BackgroundGrayContext} from '../../App'
 
 const Sidebar = ( {boardData} ) => {
-    const {boardIndex, setBoardIndex} = useContext(BackgroundGrayContext)
+    const {boardIndex, setBoardIndex, darkMode} = useContext(BackgroundGrayContext)
     const {setGrayBackground} = useContext(BackgroundGrayContext)
     const [displayAddBoardModal, setDisplayAddBoardModal] = useState(false)
     const changeBoard = (index) => {
@@ -28,7 +28,9 @@ const Sidebar = ( {boardData} ) => {
      }
 
     return (
-         <div  className='sidebar-container'>
+         <div 
+         style={darkMode ? {backgroundColor : "#2B2C37"} : {backgroundColor : "#FFFFFF"}}
+         className='sidebar-container'>
                 <>
                 <h3>All boards ( {boardData.length} )</h3>
                 {boardData.map((board, index) => {

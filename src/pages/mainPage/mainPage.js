@@ -14,7 +14,7 @@ import EditTaskModal from '../../components/editTaskModal/editTaskModal';
 
 const MainPage = ( {currentBoard, boardData} ) => {
     // changing column object to array
-    const {taskContext} = useContext(BackgroundGrayContext)
+    const {taskContext, darkMode} = useContext(BackgroundGrayContext)
     const [displayViewTask, setDisplayViewTask] = useState(false)
     const [setDisplayEditDelete] = useState(false)
     const [displayDeleteModal, setDisplayDeleteModal] = useState(false)
@@ -38,7 +38,7 @@ const MainPage = ( {currentBoard, boardData} ) => {
 
     const taskToChange = `${currentBoard._id}/tasks/${taskContext._id}`
 return (
-    <main>
+    <main style={darkMode ? {backgroundColor :" #20212C"} : {backgroundColor : "#F4F7FD"}}>
         <div className='sidebar'>
             <Sidebar 
             boardData={boardData}

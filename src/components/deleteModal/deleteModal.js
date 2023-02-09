@@ -7,7 +7,7 @@ import { useRef, useContext } from 'react'
 
 
 const DeleteModal = ( {itemName, boardToDelete, setDisplayDeleteModal, element, setDisplayViewTask} ) => {
-    const {setGrayBackground} = useContext(BackgroundGrayContext)
+    const {setGrayBackground, darkMode} = useContext(BackgroundGrayContext)
     const ref = useRef()
     useOnClickOutside(ref, () => {
         setGrayBackground('App')
@@ -28,7 +28,9 @@ const DeleteModal = ( {itemName, boardToDelete, setDisplayDeleteModal, element, 
     }
     return (
         <>
-        <div ref={ref} className='delete-modal'>
+        <div 
+        style={darkMode ? {backgroundColor : "#2B2C37"} : {backgroundColor : "#FFFFFF"}}
+        ref={ref} className='delete-modal'>
             <h1>Delete this {element}?</h1>
             <p>Are you sure you want to delete the '{itemName}'? This action cannot be reversed.</p>
             <button onClick={handleDelete} className='delete-btn'>Delete</button>

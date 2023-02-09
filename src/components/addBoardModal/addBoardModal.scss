@@ -17,7 +17,7 @@
     padding-top: 2rem;
     padding-bottom: 2rem;
     align-items: center;
-    h1 {
+    h2 {
        font-size: $navFont; 
        margin-bottom: 2.5rem;
        align-self: flex-start;
@@ -42,6 +42,10 @@
            font-weight: $FW500;
            font-size: $subtaskFont;
            font-family: $mainFont;
+        }
+        .input-dark {
+            background-color: #2B2C37;
+            color: #FFFFFF;
         }
         fieldset {
             border: none;

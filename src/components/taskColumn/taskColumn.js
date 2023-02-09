@@ -10,7 +10,7 @@ const TaskColumn = ( {currentBoard, taskStatus, setDisplayViewTask, columnColor}
     const childLength = useRef(null)
     const [countTasks, setCountTasks] = useState(0)
     const {setTaskContext} = useContext(BackgroundGrayContext)
-    const {setGrayBackground} = useContext(BackgroundGrayContext)
+    const {setGrayBackground, darkMode} = useContext(BackgroundGrayContext)
 
 
     useEffect(() => {
@@ -44,8 +44,12 @@ const TaskColumn = ( {currentBoard, taskStatus, setDisplayViewTask, columnColor}
           return (
             <Fragment key={index}>
             {taskStatus === task.status ? (
-                <div onClick={() => handleClickOnColumn(task)} className="task-card-collapsed-container">
-                <h2>{task.name}</h2>
+                <div 
+                style={darkMode ? {backgroundColor : "#2B2C37"} : {backgroundColor : "#FFFFFF"}}
+                onClick={() => handleClickOnColumn(task)} 
+                className="task-card-collapsed-container">
+                <h2 style={darkMode ? {color : "#FFFFFF"} : {color : "#000000"}}
+                >{task.name}</h2>
                 <h3>{number} of {task.subtasks.length} subtasks</h3>
             </div>
             

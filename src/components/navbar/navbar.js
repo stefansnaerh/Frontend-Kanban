@@ -4,6 +4,7 @@ import { useState, useContext} from 'react'
 // icons
 import plusSign from '../../images/+.svg'
 import threeDots from '../../images/threeDots.svg'
+import threeDotsDark from '../../images/threeDotsDark.svg'
 // components
 import NavlinksMobile from '../navlinksMobile/navlinksMobile'
 import AddTaskModal from '../addTaskModal/addTaskModal'
@@ -14,13 +15,14 @@ import EditBoardModal from '../editBoardModal/editBoard'
 import { BackgroundGrayContext } from '../../App'
 
 
-const Navbar = ({boardData, boardIndex }) => {
+const Navbar = ({boardData, boardIndex}) => {
     const [displayEditAndDelete, setDisplayEditAndDelete] = useState(false)
     const [displayAddTaskModal, setDisplayAddTaskModal] = useState(false)
     const [displayDeleteModal, setDisplayDeletekModal] = useState(false)
     const [displayEditBoard, setDisplayEditBoard] = useState(false)
-    const {setGrayBackground} = useContext(BackgroundGrayContext)
-
+    const {setGrayBackground, darkMode} = useContext(BackgroundGrayContext)
+  
+   
     const displayEditAndDeleteModal = () => {
         setDisplayEditAndDelete(prev => !prev)
     }
@@ -45,15 +47,15 @@ const Navbar = ({boardData, boardIndex }) => {
     
 
     return (
-        <header>
+        <header style={darkMode ? {backgroundColor: "#2B2C37"} : {backgroundColor: "#FFFFFF"}}>
             <div className='logo-container'>
                 <span className='line1'></span>
                 <span className='line2'></span>
                 <span className='line3'></span>
             </div>
-            <h1>kanban</h1>
+            <h1 style={darkMode ? {color: "#FFFFFF"} : {color : "#000000"}}>kanban</h1>
             <span className='sidebar-line'></span>
-            <h2>{boardData[boardIndex].title}</h2> 
+            <h2 style={darkMode ? {color: "#FFFFFF"} : {color : "#000000"}} >{boardData[boardIndex].title}</h2> 
            <NavlinksMobile
            boardData={boardData}
            />
@@ -64,8 +66,8 @@ const Navbar = ({boardData, boardIndex }) => {
                 <button onClick={handleAddTask} className='add-task-button-ipad'>
                     + Add New Task
                 </button>
-                <button className='three-dots-button' onClick={displayEditAndDeleteModal}>
-                <img alt='three dots' className='three-dots' src={threeDots}></img>
+                <button  className='three-dots-button' onClick={displayEditAndDeleteModal}>
+                <img  alt='three dots' className='three-dots' src={darkMode ? threeDotsDark : threeDots  }></img>
                 </button>
             </div>
             {displayEditAndDelete ? (

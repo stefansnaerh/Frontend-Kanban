@@ -18,7 +18,6 @@ html is set to 62.5 % so all rem units in app are based on 10px. So 1.6rem is 16
 */
 html {
   font-size: 62.5%;
-  background-color: #F4F7FD;
  
 }
 

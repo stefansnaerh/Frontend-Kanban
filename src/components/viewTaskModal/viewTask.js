@@ -1,5 +1,6 @@
 import './viewTask.scss'
 import threeDots from '../../images/threeDots.svg'
+import threeDotsDark from '../../images/threeDotsDark.svg'
 import apiTask from '../../utils/apiTask'
 import { useContext, useState, useRef, Fragment } from 'react'
 import { BackgroundGrayContext } from '../../App'
@@ -11,7 +12,7 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, 
     const [getStatus, setGetStatus] = useState(taskContext.status)
     const [taskId] = useState(taskContext._id)
     const [subtasks, setSubtasks] = useState(taskContext.subtasks)
-    const {setGrayBackground} = useContext(BackgroundGrayContext)
+    const {setGrayBackground, darkMode} = useContext(BackgroundGrayContext)
     const [displayEditDelete, setDisplayEditDelete] = useState(false)
     const ref = useRef()
 
@@ -40,11 +41,13 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, 
     
 
     return (
-        <div ref={ref} className='view-task-container'>
+        <div 
+        style={darkMode ? {backgroundColor : "#2B2C37"} : {backgroundColor : "#FFFFFF"}} 
+        ref={ref} className='view-task-container'>
             <div className='button-text-container'>
-            <h1>{taskContext.name}</h1>
+            <h1 style={darkMode ? {color : "#FFFFFF"} : {color : "#000000"}}  >{taskContext.name}</h1>
             <button onClick={() => setDisplayEditDelete(prev => !prev)}>
-                <img alt='three dots' src={threeDots}></img>
+                <img alt='three dots' src={darkMode ? threeDotsDark : threeDots}></img>
             </button>
             </div>
             <p>{taskContext.description}</p>
@@ -54,10 +57,13 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, 
                     {taskContext.subtasks.map((subtask, index) => {
                         return (
                             <Fragment key={index}>
-                            <div  className='checkbox-label-container'>
+                            <div 
+                            style={darkMode ? {backgroundColor : "#20212C"} : null }
+                            className='checkbox-label-container'>
                                 {subtask.done === true ?  (
                                 <>
                                     <input
+                                    style={darkMode ? {color : "#2B2C37"} : {color : "#FFFFFF"}}
                                     value={subtasks[index].done} 
                                     name={subtask.name} type="checkbox" 
                                     onChange={() => handleSubtasks(index)} 
@@ -85,7 +91,10 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, 
                     })}
                 </fieldset>
                 <label htmlFor='pick-status' className='status-label'>Current Status</label>
-                    <select name='pick-status' onChange={(e) => setGetStatus(e.target.value)}>
+                    <select 
+                    style={darkMode ? {backgroundColor : "#20212C", color: "#ffffff"} : {backgroundColor : "#FFFFFF"}} 
+                    name='pick-status' 
+                    onChange={(e) => setGetStatus(e.target.value)}>
                         {columns.map((column, index) => {
                             return (
                                 <Fragment key={index}>

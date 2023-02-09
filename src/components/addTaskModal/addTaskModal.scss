@@ -43,6 +43,10 @@
            font-size: $subtaskFont;
            font-family: $mainFont;
         }
+        .input-dark {
+            background-color: #2B2C37;
+            color: #FFFFFF;
+        }
         textarea {
            border-radius: 4px;
            border: 1px solid rgba(130, 143, 163, 0.25);

@@ -12,7 +12,7 @@ import xIcon from '../../images/x.svg'
 
 
 const AddBoardModal = ( {closeAddBoardModal} ) => {
-    const {setGrayBackground} = useContext(BackgroundGrayContext)
+    const {setGrayBackground, darkMode} = useContext(BackgroundGrayContext)
     const [columnCount, setColumnCount] = useState(["e.g Todo" , "e.g Doing"])
     // object to store columns before posting
     const [columnNames, setColumnNames] = useState({ })
@@ -59,13 +59,16 @@ const AddBoardModal = ( {closeAddBoardModal} ) => {
         setGrayBackground('App')
     }
     return (
-        <div ref={ref} className='add-board-modal'>
-           <h1>Add new board</h1>
+        <div  
+        style={darkMode ? {backgroundColor : "#2B2C37"} : {backgroundColor : "#FFFFFF"}}
+        ref={ref} className='add-board-modal'>
+           <h2 style={darkMode ? {color:"#FFFFFF"} : {color : "#FFFFFFF"}}>
+            Add new board</h2>
            <form>
             <label htmlFor='board-name'>Board Name</label>
             <input 
             name='board-name'
-            className='board-name-input' 
+            className={darkMode ? "input-dark" : null}
             placeholder='e.g Web Design'
             onChange={(e) => {setBoardName(e.target.value)}}>
             </input>
@@ -75,7 +78,9 @@ const AddBoardModal = ( {closeAddBoardModal} ) => {
                     return (
                     <div key={index}>
                     <label htmlFor={`column ${index +1}`}></label>
-                    <input placeholder={input} onChange={(e) => handleColumns(e, index)}></input>
+                    <input
+                    className={darkMode ? "input-dark" : null}
+                     placeholder={input} onChange={(e) => handleColumns(e, index)}></input>
                     <button onClick={(e) => removeColumn(e, index)}>
                         <img alt='X icon' src={xIcon}/>
                     </button>
@@ -83,7 +88,9 @@ const AddBoardModal = ( {closeAddBoardModal} ) => {
                     )
                 })}
                 </fieldset>
-            <button className='add-column-btn' onClick={createColumn}>+ Add New Column</button>
+            <button 
+             style={darkMode ? {backgroundColor : "#FFFFFF"} : null}
+            className='add-column-btn' onClick={createColumn}>+ Add New Column</button>
             <button className='submit-board-btn' onClick={addNewBoard}>Create New Board</button>
            </form>
         </div>
