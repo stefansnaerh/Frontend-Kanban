@@ -70,7 +70,6 @@ const EditTaskModal = ( {boardData,  taskContext,  setDisplayEditTask, taskIndex
             description: taskDescription,
             subtasks: subTaskNames
         }
-
         apiTask.put(`/${boardId}/tasks/${taskContext._id}`, newBoard)
         currentBoard.tasks.splice(taskIndex, 1, newBoard)
         setDisplayEditTask(false)

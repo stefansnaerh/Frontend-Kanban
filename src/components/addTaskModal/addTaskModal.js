@@ -67,11 +67,10 @@ const AddTaskModal = ({closeAddTaskModal, boardData, currentBoard}) => {
             subtasks: subTaskNames
         }
         apiTask.post(`/${boardId}`, newBoard);
-        currentBoard.tasks.push(newBoard)
+        //currentBoard.tasks.push(newBoard)
         setTaskContext(newBoard)
         closeAddTaskModal()
     }  
-    console.log(currentBoard)  
     return (
         <>
         <div style={darkMode ? {backgroundColor : "#2B2C37"} : {backgroundColor : "#FFFFFF"}} ref={ref} className='add-task-modal'>

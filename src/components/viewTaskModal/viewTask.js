@@ -21,7 +21,9 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, 
         setGrayBackground('App')
         handleChangedTask()
     })
-    console.log(subtasks)
+  
+
+    console.log(getStatus)
 
 
 

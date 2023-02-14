@@ -11,14 +11,14 @@ import { BackgroundGrayContext} from '../../App'
 import useComponentVisible from '../../utils/useComponentVisible'
 
 
+
 const NavDropdown =  ({ boardData,  setDisplayLinks, handleAddBoardModal}) =>  {
     const {setGrayBackground, setDarkMode, darkMode} = useContext(BackgroundGrayContext)
     const {boardIndex, setBoardIndex} = useContext(BackgroundGrayContext)
     const { ref, isComponentVisible } = useComponentVisible(true);
-    
+
     const closeOnClick = (index) => {
         setBoardIndex(index)
-        window.localStorage.setItem('index', JSON.stringify(index))
         setDisplayLinks(false)
         setGrayBackground('App')
     }
@@ -65,9 +65,9 @@ const NavDropdown =  ({ boardData,  setDisplayLinks, handleAddBoardModal}) =>  {
                 style={darkMode ? {backgroundColor : "#20212C"} : {backgroundColor : "#F4F7FD"}}
                 className='darkmode-container'>
                     <img alt='sun' src={sunIcon}/>
-                    <label class="switch">
+                    <label className="switch">
                     <input onClick={() => setDarkMode(prev => !prev)} type="checkbox"/>
-                    <span class="slider round"></span>
+                    <span className="slider round"></span>
                     </label>
                     <img alt='moon' src={moonIcon}/>
                 </div>

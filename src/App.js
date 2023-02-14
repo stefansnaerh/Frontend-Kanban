@@ -14,12 +14,13 @@ export const BackgroundGrayContext = createContext()
 
 
 function App() {
-  const checkIndex = window.localStorage.getItem('index')
+   
   const [loading, setLoading] = useState(true)
   const [boardData, setBoardData] = useState({})
   // setting class for App to state to be able to change to gray background onClick from other components
   const [greyBackground, setGrayBackground] = useState('App')
-  const [boardIndex, setBoardIndex] = useState(checkIndex ? JSON.parse(checkIndex) : 0)
+ 
+  const [boardIndex, setBoardIndex] = useState(0)
   const [taskContext, setTaskContext] = useState([])
   const [darkMode, setDarkMode] = useState(false)
 
@@ -34,7 +35,6 @@ function App() {
   }, [taskContext])
 
   const currentBoard = boardData[boardIndex]
-
   return (
     <div className={greyBackground}>
       {loading ? (<>Loading.....</>): (

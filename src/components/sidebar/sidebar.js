@@ -63,9 +63,9 @@ const Sidebar = ( {boardData} ) => {
                     style={darkMode ? {backgroundColor : "#20212C"} : {backgroundColor : "#F4F7FD"}}
                     className='darkmode-container'>
                     <img alt='sun' src={sunIcon}/>
-                     <label class="switch">
+                     <label className="switch">
                     <input onClick={() => setDarkMode(prev => !prev)} type="checkbox"/>
-                    <span class="slider round"></span>
+                    <span className="slider round"></span>
                     </label>
                     <img alt='moon' src={moonIcon}/>
                 </div>
