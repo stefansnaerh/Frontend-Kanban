@@ -59,6 +59,7 @@ const EditBoardModal = ( {setDisplayEditBoard, board} ) => {
         setDisplayEditBoard(false)
         setGrayBackground('App')
     }
+    
     return (
         <div 
         style={darkMode ? {backgroundColor : "#2B2C37"} : {backgroundColor : "#FFFFFF"}}

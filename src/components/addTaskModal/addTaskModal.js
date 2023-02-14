@@ -1,5 +1,5 @@
 import './addTaskModal.scss'
-import { useContext, useState, useRef } from 'react'
+import { useContext, useState, useRef, useEffect } from 'react'
 
 import apiTask from '../../utils/apiTask'
 import { BackgroundGrayContext } from '../../App'
@@ -8,8 +8,8 @@ import useOnClickOutside from '../../utils/useOnClickOutside'
 //icons
 import xIcon from '../../images/x.svg' 
 
-const AddTaskModal = ({closeAddTaskModal, boardData}) => {
-    const { setGrayBackground, darkMode} = useContext(BackgroundGrayContext)
+const AddTaskModal = ({closeAddTaskModal, boardData, currentBoard}) => {
+    const {setGrayBackground, darkMode, setTaskContext} = useContext(BackgroundGrayContext)
     const {boardIndex} = useContext(BackgroundGrayContext)
     const [columnCount, setColumnCount] = useState(["e.g Make Coffee" , "e.g Drink Coffee and smile"])
     const [subTaskNames, setSubTaskNames] = useState([])
@@ -21,6 +21,7 @@ const AddTaskModal = ({closeAddTaskModal, boardData}) => {
     const columnsObjectToArray = Object.values(correctBoard.columns[0])
     const [getStatus, setGetStatus] = useState(columnsObjectToArray[0])
     const ref = useRef();
+
 
     // function that handles click outside of modals to close them
     useOnClickOutside(ref, () => {
@@ -65,13 +66,16 @@ const AddTaskModal = ({closeAddTaskModal, boardData}) => {
             description: taskDescription,
             subtasks: subTaskNames
         }
-        apiTask.post(`/${boardId}`, newBoard)
+        apiTask.post(`/${boardId}`, newBoard);
+        currentBoard.tasks.push(newBoard)
+        setTaskContext(newBoard)
         closeAddTaskModal()
-    }    
+    }  
+    console.log(currentBoard)  
     return (
         <>
         <div style={darkMode ? {backgroundColor : "#2B2C37"} : {backgroundColor : "#FFFFFF"}} ref={ref} className='add-task-modal'>
-           <h1>Add New Task</h1>
+           <h2 >Add New Task</h2>
            <form>
             <label htmlFor='task-name'>Title</label>
             <input 

@@ -31,9 +31,9 @@ function App() {
       }
       getBoards()
   
-  }, [])
+  }, [taskContext])
 
-
+  const currentBoard = boardData[boardIndex]
 
   return (
     <div className={greyBackground}>
@@ -48,10 +48,13 @@ function App() {
         <Navbar
         boardData={boardData}
         boardIndex= {boardIndex}
+        currentBoard = {currentBoard}
+        taskContext = {taskContext}
         />
         <MainPage
-        currentBoard={boardData[boardIndex]}
+        currentBoard={currentBoard}
         boardData={boardData}
+        setBoardData={setBoardData}
         />
       </BackgroundGrayContext.Provider>
       )}

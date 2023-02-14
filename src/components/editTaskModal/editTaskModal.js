@@ -11,20 +11,20 @@ import xIcon from '../../images/x.svg'
 
 
 
-const EditTaskModal = ( {boardData,  taskContext,  setDisplayEditTask} ) => {
-
+const EditTaskModal = ( {boardData,  taskContext,  setDisplayEditTask, taskIndex, currentBoard} ) => {
+   
     const {setGrayBackground, darkMode} = useContext(BackgroundGrayContext)
     const {boardIndex} = useContext(BackgroundGrayContext)
     const [subTaskNames, setSubTaskNames] = useState(taskContext.subtasks)
     const [taskName, setTaskName] = useState(taskContext.name)
     const [taskDescription, setTaskDescription] = useState(taskContext.description)
-   // getStatus wasnt posting the status if you didnt choose anything because of the onchange
-   // So I needed to store the first element in columns array to state
+    const [getStatus, setGetStatus] = useState(taskContext.status)
     const correctBoard = boardData[boardIndex]
     const columnsObjectToArray = Object.values(correctBoard.columns[0])
-    const [getStatus, setGetStatus] = useState(taskContext.status)
     const ref = useRef();
 
+
+    console.log(taskIndex)
     // function that handles click outside of modals to close them
     useOnClickOutside(ref, () => {
         setGrayBackground('App')
@@ -72,6 +72,7 @@ const EditTaskModal = ( {boardData,  taskContext,  setDisplayEditTask} ) => {
         }
 
         apiTask.put(`/${boardId}/tasks/${taskContext._id}`, newBoard)
+        currentBoard.tasks.splice(taskIndex, 1, newBoard)
         setDisplayEditTask(false)
         setGrayBackground('App')
     }   

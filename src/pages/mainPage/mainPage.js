@@ -5,20 +5,22 @@ import ViewTaskModal from '../../components/viewTaskModal/viewTask';
 
 
 import { BackgroundGrayContext } from '../../App';
-import { Fragment, useContext, useState } from 'react';
+import { Fragment, useContext, useState, useEffect } from 'react';
+import apiBoard from '../../utils/apiBoard';
 
 import Sidebar from '../../components/sidebar/sidebar';
 import DeleteModal from '../../components/deleteModal/deleteModal'
 
 import EditTaskModal from '../../components/editTaskModal/editTaskModal';
 
-const MainPage = ( {currentBoard, boardData} ) => {
+const MainPage = ( {currentBoard, boardData, setBoardData} ) => {
     // changing column object to array
     const {taskContext, darkMode} = useContext(BackgroundGrayContext)
     const [displayViewTask, setDisplayViewTask] = useState(false)
     const [setDisplayEditDelete] = useState(false)
     const [displayDeleteModal, setDisplayDeleteModal] = useState(false)
     const [displayEditTask, setDisplayEditTask] = useState(false)
+    const [taskIndex, setTaskIndex] = useState()
   
     const columnsObjectToArray = Object.values(currentBoard.columns[0])
 
@@ -27,6 +29,7 @@ const MainPage = ( {currentBoard, boardData} ) => {
         setDisplayEditDelete(false)
         setDisplayViewTask(false)
     }
+
     
 
     const showEdit = () => {
@@ -55,6 +58,8 @@ return (
                     currentBoard={currentBoard}
                     taskStatus={column}
                     setDisplayViewTask={setDisplayViewTask}
+                    taskIndex = {taskIndex}
+                    setTaskIndex = {setTaskIndex}
                     />
                     </div>
                     </Fragment>
@@ -78,13 +83,17 @@ return (
             itemName={taskContext.name}
             element={'task'}
             setDisplayViewTask={setDisplayViewTask}
+            taskIndex = {taskIndex}
+            currentBoard = {currentBoard}
             /> : null}
             {displayEditTask ? 
              <EditTaskModal
+             currentBoard={currentBoard}
              boardData={boardData}
              taskContext={taskContext}
              taskToChange={taskToChange}
              setDisplayEditTask={setDisplayEditTask}
+             taskIndex = {taskIndex}
              /> : null}
         </div>
     </main>

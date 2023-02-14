@@ -6,7 +6,7 @@ import { BackgroundGrayContext } from '../../App'
 import { useRef, useContext } from 'react'
 
 
-const DeleteModal = ( {itemName, boardToDelete, setDisplayDeleteModal, element, setDisplayViewTask} ) => {
+const DeleteModal = ( {itemName, boardToDelete, setDisplayDeleteModal, element, setDisplayViewTask, currentBoard, taskIndex} ) => {
     const {setGrayBackground, darkMode} = useContext(BackgroundGrayContext)
     const ref = useRef()
     useOnClickOutside(ref, () => {
@@ -14,8 +14,6 @@ const DeleteModal = ( {itemName, boardToDelete, setDisplayDeleteModal, element, 
         setDisplayDeleteModal(false)
     })
 
-   
-    
     const handleDelete= (e) => {
         e.preventDefault()
     
@@ -24,6 +22,7 @@ const DeleteModal = ( {itemName, boardToDelete, setDisplayDeleteModal, element, 
         if(setDisplayViewTask !== undefined){
             setDisplayViewTask(false)
         }
+        currentBoard.tasks.splice(taskIndex, 1)
         setGrayBackground('App')
     }
     return (

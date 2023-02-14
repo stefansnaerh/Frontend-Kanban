@@ -4,9 +4,10 @@ This is my first full stack application. <br/>
 I built this project for practice and I wanted a full stack application to show in my portfolio.<br/>
 I learned alot both about the backend and then connecting it to my frontend. <br/>
 It gave me a good practice on handling state in ReactJS and also tested my Javascript skills.<br/>
-I used localStorage to display the right board on refresh
+I used localStorage to display the right board on refresh and useContext for passing state down the component tree.<br/>
+The site has a both a dark theme and light theme.
 
-It has all crud functionality implemented. <br/>
+It has all crud functionality implemented. It both updates the backend and states so when you add board or task it renders instantly<br/>
 
 ## Tech Stack
 

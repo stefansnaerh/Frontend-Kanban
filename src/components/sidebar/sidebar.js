@@ -4,6 +4,8 @@ import './sidebar.scss'
 import boardIcon from '../../images/boardIcon.svg'
 import boardIconPurple from '../../images/boardIconPurple.svg'
 import boardIconWhite from '../../images/boardIconWhite.svg'
+import moonIcon from '../../images/moonIcon.svg'
+import sunIcon from '../../images/sunIcon.svg'
 
 import AddBoardModal from '../addBoardModal/addBoardModal'
 
@@ -11,7 +13,7 @@ import { useContext, useState, Fragment } from 'react'
 import { BackgroundGrayContext} from '../../App'
 
 const Sidebar = ( {boardData} ) => {
-    const {boardIndex, setBoardIndex, darkMode} = useContext(BackgroundGrayContext)
+    const {boardIndex, setBoardIndex, darkMode, setDarkMode} = useContext(BackgroundGrayContext)
     const {setGrayBackground} = useContext(BackgroundGrayContext)
     const [displayAddBoardModal, setDisplayAddBoardModal] = useState(false)
     const changeBoard = (index) => {
@@ -53,11 +55,20 @@ const Sidebar = ( {boardData} ) => {
                 })}
                 <div className='create-board-container'>
                     <img alt='board-icon-pruple' src={boardIconPurple}/>
-                    <button onClick={openAddBoardModal} className='create-board-btn'
-                     >
+                    <button onClick={openAddBoardModal} className='create-board-btn'>
                         + Create New Board
                     </button>
                  </div>
+                 <div
+                    style={darkMode ? {backgroundColor : "#20212C"} : {backgroundColor : "#F4F7FD"}}
+                    className='darkmode-container'>
+                    <img alt='sun' src={sunIcon}/>
+                     <label class="switch">
+                    <input onClick={() => setDarkMode(prev => !prev)} type="checkbox"/>
+                    <span class="slider round"></span>
+                    </label>
+                    <img alt='moon' src={moonIcon}/>
+                </div>
                  </> 
                  {displayAddBoardModal ? (
                     <>

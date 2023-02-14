@@ -5,7 +5,7 @@ import ColumnHeader from '../columnHeader/columnHeader';
 
 import { BackgroundGrayContext } from '../../App';
 
-const TaskColumn = ( {currentBoard, taskStatus, setDisplayViewTask, columnColor} ) => {
+const TaskColumn = ( {currentBoard, taskStatus, setDisplayViewTask, columnColor,  setTaskIndex} ) => {
 
     const childLength = useRef(null)
     const [countTasks, setCountTasks] = useState(0)
@@ -17,13 +17,16 @@ const TaskColumn = ( {currentBoard, taskStatus, setDisplayViewTask, columnColor}
         // get number of tasks under each column
         const list = childLength.current.children
         setCountTasks(list.length)
-    }, [{currentBoard}])
+    }, [currentBoard])
 
-    const handleClickOnColumn = (task) => {
+    const handleClickOnColumn = (task, index) => {
         setTaskContext(task) 
         setDisplayViewTask(true)
         setGrayBackground('App-disabled')
+        setTaskIndex(index)
+      
     }
+
 
     return (
         <>
@@ -46,7 +49,7 @@ const TaskColumn = ( {currentBoard, taskStatus, setDisplayViewTask, columnColor}
             {taskStatus === task.status ? (
                 <div 
                 style={darkMode ? {backgroundColor : "#2B2C37"} : {backgroundColor : "#FFFFFF"}}
-                onClick={() => handleClickOnColumn(task)} 
+                onClick={() => handleClickOnColumn(task, index)} 
                 className="task-card-collapsed-container">
                 <h2 style={darkMode ? {color : "#FFFFFF"} : {color : "#000000"}}
                 >{task.name}</h2>

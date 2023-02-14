@@ -21,6 +21,9 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, 
         setGrayBackground('App')
         handleChangedTask()
     })
+    console.log(subtasks)
+
+
 
     const handleSubtasks = (index) => {
         const newSubtasks = [...subtasks]
@@ -38,7 +41,7 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, 
         }
         apiTask.put(`/${currentBoard._id}/tasks/${taskId}`, updatedTask)
     }
-    
+    console.log(taskContext)
 
     return (
         <div 
@@ -98,7 +101,7 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, 
                         {columns.map((column, index) => {
                             return (
                                 <Fragment key={index}>
-                                <option value={column}>{getStatus}</option>
+                                <option value={column}>{column}</option>
                                 </Fragment>
                             )
                         })}

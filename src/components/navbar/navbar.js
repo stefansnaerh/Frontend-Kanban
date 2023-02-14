@@ -15,13 +15,16 @@ import EditBoardModal from '../editBoardModal/editBoard'
 import { BackgroundGrayContext } from '../../App'
 
 
-const Navbar = ({boardData, boardIndex}) => {
+const Navbar = ({boardData, boardIndex, currentBoard }) => {
     const [displayEditAndDelete, setDisplayEditAndDelete] = useState(false)
     const [displayAddTaskModal, setDisplayAddTaskModal] = useState(false)
     const [displayDeleteModal, setDisplayDeletekModal] = useState(false)
     const [displayEditBoard, setDisplayEditBoard] = useState(false)
     const {setGrayBackground, darkMode} = useContext(BackgroundGrayContext)
+
   
+
+
    
     const displayEditAndDeleteModal = () => {
         setDisplayEditAndDelete(prev => !prev)
@@ -34,6 +37,7 @@ const Navbar = ({boardData, boardIndex}) => {
     const closeAddTaskdModal = () => {
         setDisplayAddTaskModal(false)
         setGrayBackground('App')
+  
     }
     const showDeleteModal = () => {
         setDisplayDeletekModal(true)
@@ -90,6 +94,7 @@ const Navbar = ({boardData, boardIndex}) => {
               boardToDelete={boardData[boardIndex]._id}
               setDisplayDeleteModal={setDisplayDeletekModal}
               element={'board'}
+              currentBoard = {currentBoard}
               />  
             ): null}
              
@@ -97,6 +102,7 @@ const Navbar = ({boardData, boardIndex}) => {
             <AddTaskModal
             boardData = {boardData}
             closeAddTaskModal = {closeAddTaskdModal}
+            currentBoard = {currentBoard}
             />) : null }
         
         </header>

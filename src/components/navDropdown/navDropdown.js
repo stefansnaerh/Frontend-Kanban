@@ -61,11 +61,14 @@ const NavDropdown =  ({ boardData,  setDisplayLinks, handleAddBoardModal}) =>  {
                         + Create New Board
                     </button>
                  </div>
-                <div className='darkmode-container'>
+                <div 
+                style={darkMode ? {backgroundColor : "#20212C"} : {backgroundColor : "#F4F7FD"}}
+                className='darkmode-container'>
                     <img alt='sun' src={sunIcon}/>
-                    <button onClick={() => setDarkMode(prev => !prev)}>
-                        toggle darkmode
-                    </button>
+                    <label class="switch">
+                    <input onClick={() => setDarkMode(prev => !prev)} type="checkbox"/>
+                    <span class="slider round"></span>
+                    </label>
                     <img alt='moon' src={moonIcon}/>
                 </div>
                  </>
