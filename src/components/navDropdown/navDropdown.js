@@ -26,6 +26,7 @@ const NavDropdown =  ({ boardData,  setDisplayLinks, handleAddBoardModal}) =>  {
         setGrayBackground('App-disabled')
     } else {
         setGrayBackground('App')
+        setDisplayLinks(false)
     }
    
     return (
