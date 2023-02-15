@@ -1,7 +1,7 @@
 # Fullstack Kanban Application
 
 This is my first full stack application. <br/>
-\*\*It's still not fully finished. I need to figure out how to make the app render again on CRUD requests. I also need to store the index of correct board to localstorage and figure out how to handle when board gets deleted as the app crashes on refresh as that index is no longer available.
+**It's still not fully finished. I need to figure out how to make the app render again on CRUD requests. I also need to store the index of correct board to localstorage and figure out how to handle when board gets deleted as the app crashes on refresh as that index is no longer available. **
 
 I built this project for practice and I wanted a full stack application to show in my portfolio.<br/>
 I learned alot both about the backend and then connecting it to my frontend. <br/>
