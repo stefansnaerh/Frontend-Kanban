@@ -1,10 +1,12 @@
 # Fullstack Kanban Application
 
 This is my first full stack application. <br/>
+\*\*It's still not fully finished. I need to figure out how to make the app render again on CRUD requests. I also need to store the index of correct board to localstorage and figure out how to handle when board gets deleted as the app crashes on refresh as that index is no longer available.
+
 I built this project for practice and I wanted a full stack application to show in my portfolio.<br/>
 I learned alot both about the backend and then connecting it to my frontend. <br/>
 It gave me a good practice on handling state in ReactJS and also tested my Javascript skills.<br/>
-I used localStorage to display the right board on refresh and useContext for passing state down the component tree.<br/>
+I used useContext for passing state down the component tree.<br/>
 The site has a both a dark theme and light theme.
 
 It has all crud functionality implemented. It both updates the backend and states so when you add board or task it renders instantly<br/>

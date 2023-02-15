@@ -67,7 +67,7 @@ const AddTaskModal = ({closeAddTaskModal, boardData, currentBoard}) => {
             subtasks: subTaskNames
         }
         apiTask.post(`/${boardId}`, newBoard);
-        //currentBoard.tasks.push(newBoard)
+        currentBoard.tasks.push(newBoard)
         setTaskContext(newBoard)
         closeAddTaskModal()
     }  

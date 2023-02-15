@@ -21,12 +21,7 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, 
         setGrayBackground('App')
         handleChangedTask()
     })
-  
-
-    console.log(getStatus)
-
-
-
+    // uptdate subtasks done or not on checkbox click
     const handleSubtasks = (index) => {
         const newSubtasks = [...subtasks]
         if (newSubtasks[index].done === false){
@@ -43,7 +38,6 @@ const ViewTaskModal = ({taskContext, columns, setDisplayViewTask, currentBoard, 
         }
         apiTask.put(`/${currentBoard._id}/tasks/${taskId}`, updatedTask)
     }
-    console.log(taskContext)
 
     return (
         <div 
