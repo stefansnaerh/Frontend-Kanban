@@ -22,9 +22,6 @@ const Navbar = ({boardData, boardIndex, currentBoard }) => {
     const [displayEditBoard, setDisplayEditBoard] = useState(false)
     const {setGrayBackground, darkMode} = useContext(BackgroundGrayContext)
 
-  
-
-
    
     const displayEditAndDeleteModal = () => {
         setDisplayEditAndDelete(prev => !prev)

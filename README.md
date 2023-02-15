@@ -9,7 +9,7 @@ It gave me a good practice on handling state in ReactJS and also tested my Javas
 I used useContext for passing state down the component tree.<br/>
 The site has a both a dark theme and light theme.
 
-It has all crud functionality implemented. It both updates the backend and states so when you add board or task it renders instantly<br/>
+It has all crud functionality implemented.<br/>
 
 ## Tech Stack
 

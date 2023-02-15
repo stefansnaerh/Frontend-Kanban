@@ -32,7 +32,7 @@ function App() {
       }
       getBoards()
   
-  }, [taskContext])
+  }, [])
 
   console.log()
 
